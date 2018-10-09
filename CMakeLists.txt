@@ -26,8 +26,12 @@ write_basic_package_version_file("cmdline-config-version.cmake"
     VERSION ${cmdline_VERSION}
     COMPATIBILITY SameMajorVersion
     )
-install(FILES "cmdline-config.cmake" "cmdline-config-version.cmake"
-    DESTINATION lib/cmake/cmdline
+install(
+    FILES
+        "cmdline-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/cmdline-config-version.cmake"
+    DESTINATION
+        lib/cmake/cmdline
     )
 
 add_library(cmdline::cmdline ALIAS cmdline)
